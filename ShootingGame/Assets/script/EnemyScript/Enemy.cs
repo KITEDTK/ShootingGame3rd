@@ -37,16 +37,15 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AsunaController player;
 
-    public Material enemyAttack;
-    public Material enemyNotAttack;
-    public GameObject enemyPrefab;
 
-
+    private Animator animator;
     // Start is called before the first frame update
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         healthBarScript = GetComponentInChildren<HeatlhBar>();
+        healthBarScript.SetMaxHealth(health);
     }
     // Update is called once per frame
     void Update()
@@ -104,14 +103,16 @@ public class Enemy : MonoBehaviour
         {
             alreadyAttack = true;
             Invoke(nameof(resetAttack), timeBetweenAttack);
-            enemyPrefab.GetComponent<MeshRenderer>().material = enemyAttack;
             player.takeDamage(damage);
+            animator.SetBool("IsAttack", true);
+            animator.SetBool("IsRunning", false);
         }
     }
     private void resetAttack()
     {
         alreadyAttack= false;
-        enemyPrefab.GetComponent<MeshRenderer>().material = enemyNotAttack;
+        animator.SetBool("IsAttack", false);
+        animator.SetBool("IsRunning", true);
     }
         
 }

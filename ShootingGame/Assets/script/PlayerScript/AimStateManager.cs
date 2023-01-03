@@ -25,8 +25,4 @@ public class AimStateManager : MonoBehaviour
         camFollowPos.localEulerAngles = new Vector3(yAxis.Value, camFollowPos.localEulerAngles.y,camFollowPos.localEulerAngles.z);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, xAxis.Value, transform.eulerAngles.z);
     }
-    public void loadPlayScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 }

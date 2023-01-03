@@ -27,6 +27,9 @@ public class LaserEyeController : MonoBehaviour
 
     
     private Vector3 gunRotation;
+
+    public AudioSource gun;
+    public AudioClip sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +61,6 @@ public class LaserEyeController : MonoBehaviour
                 enemy.takeDamage(damage);
             }
         }
+        gun.PlayOneShot(sound);
     }
 }

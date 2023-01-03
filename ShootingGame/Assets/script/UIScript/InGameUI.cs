@@ -36,6 +36,8 @@ public class InGameUI : MonoBehaviour
         enemyLeftText.text = enemyCount.ToString();
 
         scoreText.text = score.ToString();
+
+        PlayerPrefs.SetInt("score", score);
         if (waveCountDown > 0)
         {
             waveCountDownObj.SetActive(true);
@@ -47,6 +49,8 @@ public class InGameUI : MonoBehaviour
         if(asuna.gethealth() == 0)
         {
             //Do end game here
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

@@ -6,13 +6,9 @@ public class HeatlhBar : MonoBehaviour
 {
     public Slider slider;
     // Start is called before the first frame update
-    [SerializeField]
-    private Enemy enemyScript;
-
-
     private void Awake()
     {
-        enemyScript = GetComponentInParent<Enemy>();
+        
     }
     void Start()
     {

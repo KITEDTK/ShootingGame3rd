@@ -26,6 +26,8 @@ public class AsunaController : MonoBehaviour
     private Vector3 moveDirection;
 
     public float health = 200;
+
+    
     // Start is called before the first frame update
     void Start()
     {
